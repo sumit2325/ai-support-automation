@@ -27,9 +27,12 @@
     font-family: 'Inter', sans-serif;
 }
 
-body {
+.dashboard-body {
     background-color: var(--bg-main);
     color: var(--text-main);
+    margin: 0;
+    overflow-x: hidden;
+    width: 100%;
     display: flex;
     min-height: 100vh;
 }
@@ -383,12 +386,21 @@ body {
 .data-table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 600px; /* Force minimum width to ensure readability */
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 10px;
 }
 
 .data-table th, .data-table td {
     padding: 16px;
     text-align: left;
     border-bottom: 1px solid var(--border);
+    white-space: nowrap; /* Prevent text wrapping to keep table rows clean */
 }
 
 .data-table th {
