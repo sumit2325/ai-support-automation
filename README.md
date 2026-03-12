@@ -8,6 +8,19 @@ An **AI-Powered Customer Support & Service Automation** system built for an inte
 
 > 🌟 **Live Demo:** [Click here to view the live project](https://sumit2325.github.io/ai-support-automation/)
 
+## 🎥 Walkthrough & Screenshots
+
+### Working Demo Video
+A complete walkthrough of the dashboard, showing the seamless dark theme, navigation, and the interactive Agentforce AI:
+
+![Working Project Demo](assets/demo_video.webp)
+
+### Dashboard Overview
+![Dashboard Setup](assets/dashboard.png)
+
+### Agentforce AI Chat
+![AI Agent Interface](assets/ai_agent.png)
+
 ## 🧑‍💻 Author & Credits
 
 Designed and developed with extreme dedication by **Sumit Thakur** ([@sumit2325](https://github.com/sumit2325)). 
