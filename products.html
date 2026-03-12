@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SupportAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+        .product-card { background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px; box-shadow:0 2px 4px rgba(0,0,0,0.02); }
+        .product-icon { width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px; }
+        .product-card h3 { font-size:16px;margin-bottom:6px; }
+        .product-card .sku { font-size:12px;color:var(--text-muted);margin-bottom:12px; }
+        .product-card .price { font-size:20px;font-weight:700;color:var(--primary);margin-bottom:12px; }
+        .product-meta { display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border); }
+        .product-meta span { font-size:12px;color:var(--text-muted); }
+        .warranty-tag { padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;background:var(--success-bg);color:var(--success); }
+    </style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="sidebar-header"><i class="fa-solid fa-headset logo-icon"></i><h2>SupportAI</h2></div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li class="active"><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+            <li><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+            <li><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+            <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+            <li><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+        </ul>
+    </nav>
+    <div class="agentforce-promo">
+        <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+        <h4>Agentforce AI</h4>
+        <p>Ready to assist customers</p>
+        <a href="ai-agent.html" class="btn-sm">Launch Agent</a>
+    </div>
+</aside>
+
+<main class="main-content">
+    <header class="topbar">
+        <div class="search-bar"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search products..."></div>
+        <div class="topbar-actions">
+            <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+            <div class="user-profile"><img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"><span>Admin</span></div>
+        </div>
+    </header>
+
+    <div class="content-header">
+        <div><h1>Product Information</h1><p>Manage electronics & gadgets catalog and warranty details</p></div>
+        <button class="btn-primary"><i class="fa-solid fa-plus"></i> Add Product</button>
+    </div>
+
+    <div class="page-container">
+        <div class="metrics-grid" style="margin-bottom:24px;">
+            <div class="metric-card"><div class="metric-icon blue"><i class="fa-solid fa-box-open"></i></div><div class="metric-data"><h3>Total Products</h3><p class="number">342</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 15 new this month</span></div></div>
+            <div class="metric-card"><div class="metric-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="metric-data"><h3>Warranty Claims</h3><p class="number">128</p><span class="trend down"><i class="fa-solid fa-arrow-down"></i> 5% vs last month</span></div></div>
+            <div class="metric-card"><div class="metric-icon green"><i class="fa-solid fa-certificate"></i></div><div class="metric-data"><h3>Active Warranties</h3><p class="number">2,841</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 312 expiring soon</span></div></div>
+            <div class="metric-card"><div class="metric-icon purple"><i class="fa-solid fa-star"></i></div><div class="metric-data"><h3>Avg Rating</h3><p class="number">4.5/5</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 0.3 pts this month</span></div></div>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-icon" style="background:#dbeafe;color:#2563eb;"><i class="fa-solid fa-laptop"></i></div>
+                <h3>ProBook Ultra 15</h3>
+                <p class="sku">SKU: LPT-2024-ULT</p>
+                <p class="price">$1,299.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">15.6" FHD display, Intel i7, 16GB RAM, 512GB SSD</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 2 Year Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 245</span>
+                    <span>Claims: 12</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.6</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon" style="background:#dcfce7;color:#16a34a;"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>XPhone Pro Max</h3>
+                <p class="sku">SKU: PHN-2024-PRO</p>
+                <p class="price">$999.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">6.7" OLED, 108MP camera, 5000mAh, 5G</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 1 Year Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 820</span>
+                    <span>Claims: 45</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.8</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon" style="background:#fef3c7;color:#d97706;"><i class="fa-solid fa-headphones"></i></div>
+                <h3>SoundWave ANC Pro</h3>
+                <p class="sku">SKU: AUD-2024-ANC</p>
+                <p class="price">$349.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Active Noise Cancelling, 30hr battery, Hi-Res Audio</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 1 Year Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 412</span>
+                    <span>Claims: 8</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.7</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon" style="background:#ede9fe;color:#7c3aed;"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                <h3>TabMax Pro 11</h3>
+                <p class="sku">SKU: TAB-2024-MAX</p>
+                <p class="price">$749.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">11" 120Hz display, M2 chip, 256GB, Stylus support</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 2 Year Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 189</span>
+                    <span>Claims: 7</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.5</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon" style="background:#fee2e2;color:#dc2626;"><i class="fa-solid fa-gamepad"></i></div>
+                <h3>GamePulse Controller</h3>
+                <p class="sku">SKU: GAM-2024-CTR</p>
+                <p class="price">$79.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Wireless, Haptic feedback, RGB, 20hr battery</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 6 Month Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 630</span>
+                    <span>Claims: 21</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.3</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon" style="background:#cffafe;color:#0891b2;"><i class="fa-solid fa-watch"></i></div>
+                <h3>SmartWatch Ultra 2</h3>
+                <p class="sku">SKU: WTC-2024-ULT</p>
+                <p class="price">$399.00</p>
+                <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Health monitoring, GPS, Always-on display, 18hr</p>
+                <span class="warranty-tag"><i class="fa-solid fa-shield-halved"></i> 1 Year Warranty</span>
+                <div class="product-meta">
+                    <span>Stock: 274</span>
+                    <span>Claims: 3</span>
+                    <span><i class="fa-solid fa-star" style="color:#f6ad55;"></i> 4.9</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>

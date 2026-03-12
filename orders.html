@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders | SupportAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tracker { display:flex;align-items:center;gap:0;margin:24px 0; }
+        .tracker-step { display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative; }
+        .step-icon { width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:2; }
+        .step-icon.done { background:var(--success);color:#fff; }
+        .step-icon.active { background:var(--primary);color:#fff; }
+        .step-icon.pending { background:var(--border);color:var(--text-muted); }
+        .step-label { font-size:12px;color:var(--text-muted);text-align:center; }
+        .tracker-step::before { content:'';position:absolute;top:22px;left:-50%;right:50%;height:3px;background:var(--border);z-index:1; }
+        .tracker-step:first-child::before { display:none; }
+        .tracker-step.done::before { background:var(--success); }
+        .order-detail-grid { display:grid;grid-template-columns:2fr 1fr;gap:24px; }
+    </style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="sidebar-header"><i class="fa-solid fa-headset logo-icon"></i><h2>SupportAI</h2></div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+            <li class="active"><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+            <li><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+            <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+            <li><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+        </ul>
+    </nav>
+    <div class="agentforce-promo">
+        <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+        <h4>Agentforce AI</h4>
+        <p>Ready to assist customers</p>
+        <a href="ai-agent.html" class="btn-sm">Launch Agent</a>
+    </div>
+</aside>
+
+<main class="main-content">
+    <header class="topbar">
+        <div class="search-bar"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search orders by ID or customer..."></div>
+        <div class="topbar-actions">
+            <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+            <div class="user-profile"><img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"><span>Admin</span></div>
+        </div>
+    </header>
+
+    <div class="content-header">
+        <div><h1>Order Tracking</h1><p>Real-time order status and shipping management</p></div>
+    </div>
+
+    <div class="page-container">
+        <div class="metrics-grid" style="margin-bottom:24px;">
+            <div class="metric-card"><div class="metric-icon blue"><i class="fa-solid fa-cart-shopping"></i></div><div class="metric-data"><h3>Total Orders</h3><p class="number">3,412</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 11% this week</span></div></div>
+            <div class="metric-card"><div class="metric-icon orange"><i class="fa-solid fa-clock"></i></div><div class="metric-data"><h3>Pending Shipment</h3><p class="number">218</p><span class="trend down"><i class="fa-solid fa-arrow-down"></i> 5 flagged delayed</span></div></div>
+            <div class="metric-card"><div class="metric-icon green"><i class="fa-solid fa-truck-fast"></i></div><div class="metric-data"><h3>In Transit</h3><p class="number">892</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> On track</span></div></div>
+            <div class="metric-card"><div class="metric-icon purple"><i class="fa-solid fa-check-circle"></i></div><div class="metric-data"><h3>Delivered Today</h3><p class="number">147</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 15% vs yesterday</span></div></div>
+        </div>
+
+        <!-- Order Tracker Showcase -->
+        <div class="card" style="margin-bottom:24px;">
+            <div class="widget-header" style="margin-bottom:0">
+                <div>
+                    <h3>Order #ORD-20241012-9021</h3>
+                    <p style="font-size:14px;color:var(--text-muted);margin-top:4px;">Customer: Michael Chen &nbsp;|&nbsp; ProBook Ultra 15 x1 &nbsp;|&nbsp; <strong>$1,299.00</strong></p>
+                </div>
+                <span class="status-badge pending">In Transit</span>
+            </div>
+            <div class="tracker">
+                <div class="tracker-step done"><div class="step-icon done"><i class="fa-solid fa-check"></i></div><span class="step-label">Order Placed</span></div>
+                <div class="tracker-step done"><div class="step-icon done"><i class="fa-solid fa-check"></i></div><span class="step-label">Payment Confirmed</span></div>
+                <div class="tracker-step done"><div class="step-icon done"><i class="fa-solid fa-check"></i></div><span class="step-label">Packed & Shipped</span></div>
+                <div class="tracker-step active"><div class="step-icon active"><i class="fa-solid fa-truck-fast"></i></div><span class="step-label">In Transit</span></div>
+                <div class="tracker-step pending"><div class="step-icon pending"><i class="fa-solid fa-house"></i></div><span class="step-label">Delivered</span></div>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="card">
+            <div class="widget-header" style="margin-bottom:20px;">
+                <h3>All Orders</h3>
+                <div style="display:flex;gap:12px;">
+                    <select class="form-control" style="width:auto;padding:8px 14px;">
+                        <option>All Status</option><option>Pending</option><option>In Transit</option><option>Delivered</option><option>Delayed</option>
+                    </select>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#ORD-9021</strong></td>
+                        <td>Michael Chen</td>
+                        <td>ProBook Ultra 15</td>
+                        <td>$1,299.00</td>
+                        <td>Mar 8, 2026</td>
+                        <td><span class="status-badge pending">In Transit</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">Track</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-9018</strong></td>
+                        <td>Sarah Jenkins</td>
+                        <td>XPhone Pro Max</td>
+                        <td>$999.00</td>
+                        <td>Mar 7, 2026</td>
+                        <td><span class="status-badge urgent">Delayed</span></td>
+                        <td><button class="btn-sm" style="background:var(--danger)">Flag</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-9010</strong></td>
+                        <td>Emma Woods</td>
+                        <td>SoundWave ANC Pro</td>
+                        <td>$349.00</td>
+                        <td>Mar 6, 2026</td>
+                        <td><span class="status-badge solved">Delivered</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-8990</strong></td>
+                        <td>Arjun Nair</td>
+                        <td>SmartWatch Ultra 2</td>
+                        <td>$399.00</td>
+                        <td>Mar 5, 2026</td>
+                        <td><span class="status-badge review">Processing</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-8975</strong></td>
+                        <td>Tech Solutions Inc.</td>
+                        <td>TabMax Pro 11 x10</td>
+                        <td>$7,490.00</td>
+                        <td>Mar 4, 2026</td>
+                        <td><span class="status-badge solved">Delivered</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>

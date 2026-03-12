@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals | SupportAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .approval-card { background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 4px rgba(0,0,0,0.02); }
+        .approval-header { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px; }
+        .approval-body { background:var(--bg-main);border-radius:8px;padding:16px;margin-bottom:16px;font-size:14px;line-height:1.6; }
+        .approval-actions { display:flex;gap:12px;justify-content:flex-end; }
+        .btn-approve { padding:10px 24px;background:var(--success);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:500;transition:0.2s; }
+        .btn-approve:hover { background:#276749; }
+        .btn-reject { padding:10px 24px;background:#fff;color:var(--danger);border:1px solid var(--danger);border-radius:8px;cursor:pointer;font-weight:500;transition:0.2s; }
+        .btn-reject:hover { background:var(--danger-bg); }
+        .btn-escalate { padding:10px 24px;background:#fff;color:var(--info);border:1px solid var(--info);border-radius:8px;cursor:pointer;font-weight:500;transition:0.2s; }
+        .workflow-steps { display:flex;gap:0;align-items:center;margin-bottom:16px; }
+        .wf-step { display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted); }
+        .wf-step.done { color:var(--success); }
+        .wf-step.active { color:var(--primary);font-weight:600; }
+        .wf-arrow { margin:0 8px;color:var(--border); }
+    </style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="sidebar-header"><i class="fa-solid fa-headset logo-icon"></i><h2>SupportAI</h2></div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+            <li><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+            <li><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+            <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+            <li class="active"><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+        </ul>
+    </nav>
+    <div class="agentforce-promo">
+        <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+        <h4>Agentforce AI</h4>
+        <p>Ready to assist customers</p>
+        <a href="ai-agent.html" class="btn-sm">Launch Agent</a>
+    </div>
+</aside>
+
+<main class="main-content">
+    <header class="topbar">
+        <div class="search-bar"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search approval requests..."></div>
+        <div class="topbar-actions">
+            <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+            <div class="user-profile"><img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"><span>Admin</span></div>
+        </div>
+    </header>
+
+    <div class="content-header">
+        <div><h1>Approval Workflow</h1><p>Review and approve critical cases, warranty claims, and refunds</p></div>
+    </div>
+
+    <div class="page-container">
+        <div class="metrics-grid" style="margin-bottom:24px;">
+            <div class="metric-card"><div class="metric-icon orange"><i class="fa-solid fa-clock"></i></div><div class="metric-data"><h3>Pending Approvals</h3><p class="number">7</p><span class="trend down"><i class="fa-solid fa-arrow-down"></i> 2 urgent</span></div></div>
+            <div class="metric-card"><div class="metric-icon green"><i class="fa-solid fa-circle-check"></i></div><div class="metric-data"><h3>Approved Today</h3><p class="number">14</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 3 vs yesterday</span></div></div>
+            <div class="metric-card"><div class="metric-icon blue"><i class="fa-solid fa-rotate-right"></i></div><div class="metric-data"><h3>Avg Approval Time</h3><p class="number">3.2 hrs</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> Within SLA</span></div></div>
+            <div class="metric-card"><div class="metric-icon purple"><i class="fa-solid fa-robot"></i></div><div class="metric-data"><h3>AI Flagged</h3><p class="number">3</p><span class="trend pending"><i class="fa-solid fa-triangle-exclamation"></i> Needs review</span></div></div>
+        </div>
+
+        <!-- Approval 1 -->
+        <div class="approval-card">
+            <div class="approval-header">
+                <div>
+                    <h3>Bulk Warranty Claim — 10 Units <span class="status-badge review" style="margin-left:12px;">Needs Approval</span></h3>
+                    <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Case #CS-8995 &nbsp;|&nbsp; Tech Solutions Inc. &nbsp;|&nbsp; Submitted: Mar 10, 2026</p>
+                </div>
+                <span class="status-badge urgent">High Value ($7,490)</span>
+            </div>
+            <div class="workflow-steps">
+                <div class="wf-step done"><i class="fa-solid fa-check-circle"></i> Agent Review</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step done"><i class="fa-solid fa-check-circle"></i> AI Analysis</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step active"><i class="fa-solid fa-circle-half-stroke"></i> Manager Approval</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step"><i class="fa-regular fa-circle"></i> Resolution</div>
+            </div>
+            <div class="approval-body">
+                <strong>AI Summary:</strong> Tech Solutions Inc. submitted a bulk warranty claim for 10 units of TabMax Pro 11 (SKU: TAB-2024-MAX). All units reported display failures within 6 months of purchase. AI has verified purchase receipts and warranty validity for 9/10 units. Unit #7 has no valid receipt. <br><br>
+                <strong>Recommended Action:</strong> Approve 9 units for replacement. Request receipt for unit #7.
+            </div>
+            <div class="approval-actions">
+                <button class="btn-escalate" onclick="this.innerText='⬆ Escalated'"><i class="fa-solid fa-arrow-up"></i> Escalate</button>
+                <button class="btn-reject" onclick="this.innerText='✗ Rejected'"><i class="fa-solid fa-xmark"></i> Reject</button>
+                <button class="btn-approve" onclick="this.innerText='✓ Approved'"><i class="fa-solid fa-check"></i> Approve 9 Units</button>
+            </div>
+        </div>
+
+        <!-- Approval 2 -->
+        <div class="approval-card">
+            <div class="approval-header">
+                <div>
+                    <h3>Full Refund Request — ProBook Ultra 15 <span class="status-badge pending" style="margin-left:12px;">Pending</span></h3>
+                    <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Case #CS-9021 &nbsp;|&nbsp; Sarah Jenkins &nbsp;|&nbsp; Submitted: Mar 11, 2026</p>
+                </div>
+                <span class="status-badge pending">$1,299 Refund</span>
+            </div>
+            <div class="workflow-steps">
+                <div class="wf-step done"><i class="fa-solid fa-check-circle"></i> Agent Review</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step active"><i class="fa-solid fa-circle-half-stroke"></i> AI Analysis</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step"><i class="fa-regular fa-circle"></i> Manager Approval</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step"><i class="fa-regular fa-circle"></i> Resolution</div>
+            </div>
+            <div class="approval-body">
+                <strong>AI Summary:</strong> Platinum-tier customer Sarah Jenkins reports persistent screen flickering on ProBook Ultra (purchased Jan 2026). Customer sentiment score: 82/100 (frustrated). AI flagged this as a product defect case based on 11 similar reports. Refund or replacement recommended per warranty policy. <br><br>
+                <strong>Recommended Action:</strong> Approve full refund or replacement to retain Platinum customer.
+            </div>
+            <div class="approval-actions">
+                <button class="btn-escalate" onclick="this.innerText='⬆ Escalated'"><i class="fa-solid fa-arrow-up"></i> Escalate</button>
+                <button class="btn-reject" onclick="this.innerText='✗ Rejected'"><i class="fa-solid fa-xmark"></i> Reject</button>
+                <button class="btn-approve" onclick="this.innerText='✓ Approved'"><i class="fa-solid fa-check"></i> Approve Refund</button>
+            </div>
+        </div>
+
+        <!-- Approval 3 -->
+        <div class="approval-card">
+            <div class="approval-header">
+                <div>
+                    <h3>Exceptional Discount Request — 25% Off <span class="status-badge review" style="margin-left:12px;">Needs Approval</span></h3>
+                    <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Case #CS-9045 &nbsp;|&nbsp; Arjun Nair &nbsp;|&nbsp; Submitted: Mar 12, 2026</p>
+                </div>
+                <span class="status-badge pending">$199.75 Discount</span>
+            </div>
+            <div class="workflow-steps">
+                <div class="wf-step done"><i class="fa-solid fa-check-circle"></i> Agent Review</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step done"><i class="fa-solid fa-check-circle"></i> AI Analysis</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step active"><i class="fa-solid fa-circle-half-stroke"></i> Manager Approval</div>
+                <i class="fa-solid fa-chevron-right wf-arrow"></i>
+                <div class="wf-step"><i class="fa-regular fa-circle"></i> Resolution</div>
+            </div>
+            <div class="approval-body">
+                <strong>AI Summary:</strong> Gold-tier customer Arjun Nair experienced a shipping delay of 7+ days for his SmartWatch Ultra 2 order. Agent offered standard 10% goodwill discount, but customer expects 25% per prior escalation promise. Customer has 33 previous orders. <br><br>
+                <strong>Recommended Action:</strong> Approve 25% discount to maintain customer loyalty (LTV > $12,000).
+            </div>
+            <div class="approval-actions">
+                <button class="btn-escalate" onclick="this.innerText='⬆ Escalated'"><i class="fa-solid fa-arrow-up"></i> Escalate</button>
+                <button class="btn-reject" onclick="this.innerText='✗ Rejected'"><i class="fa-solid fa-xmark"></i> Reject</button>
+                <button class="btn-approve" onclick="this.innerText='✓ Approved'"><i class="fa-solid fa-check"></i> Approve Discount</button>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>

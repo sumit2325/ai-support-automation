@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases | SupportAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .routing-badge { padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600; }
+        .routing-ai { background:var(--ai-purple-bg);color:var(--ai-purple); }
+        .routing-hw { background:var(--danger-bg);color:var(--danger); }
+        .routing-ship { background:var(--warning-bg);color:var(--warning); }
+        .routing-mgr { background:var(--info-bg);color:var(--info); }
+        .filter-bar { display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap; }
+        .filter-bar button { padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:13px;font-weight:500;transition:0.2s; }
+        .filter-bar button.active, .filter-bar button:hover { background:var(--primary);color:#fff;border-color:var(--primary); }
+    </style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="sidebar-header"><i class="fa-solid fa-headset logo-icon"></i><h2>SupportAI</h2></div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+            <li><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+            <li class="active"><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+            <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+            <li><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+        </ul>
+    </nav>
+    <div class="agentforce-promo">
+        <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+        <h4>Agentforce AI</h4>
+        <p>Ready to assist customers</p>
+        <a href="ai-agent.html" class="btn-sm">Launch Agent</a>
+    </div>
+</aside>
+
+<main class="main-content">
+    <header class="topbar">
+        <div class="search-bar"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search cases..."></div>
+        <div class="topbar-actions">
+            <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+            <div class="user-profile"><img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"><span>Admin</span></div>
+        </div>
+    </header>
+
+    <div class="content-header">
+        <div><h1>Case Management</h1><p>AI-powered auto-routing and case resolution tracking</p></div>
+        <button class="btn-primary"><i class="fa-solid fa-plus"></i> New Case</button>
+    </div>
+
+    <div class="page-container">
+        <div class="metrics-grid" style="margin-bottom:24px;">
+            <div class="metric-card"><div class="metric-icon blue"><i class="fa-solid fa-ticket"></i></div><div class="metric-data"><h3>Open Cases</h3><p class="number">264</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 18 added today</span></div></div>
+            <div class="metric-card"><div class="metric-icon orange"><i class="fa-solid fa-hourglass-half"></i></div><div class="metric-data"><h3>Avg Resolution Time</h3><p class="number">6.4 hrs</p><span class="trend down"><i class="fa-solid fa-arrow-down"></i> 1.2hrs (Improved)</span></div></div>
+            <div class="metric-card"><div class="metric-icon purple"><i class="fa-solid fa-robot"></i></div><div class="metric-data"><h3>AI Auto-Resolved</h3><p class="number">64%</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 12% this week</span></div></div>
+            <div class="metric-card"><div class="metric-icon green"><i class="fa-solid fa-circle-check"></i></div><div class="metric-data"><h3>Closed Today</h3><p class="number">87</p><span class="trend up"><i class="fa-solid fa-arrow-up"></i> 5 vs yesterday</span></div></div>
+        </div>
+
+        <!-- Auto-Routing Info Banner -->
+        <div style="background:linear-gradient(135deg,#ede9fe,#dbeafe);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;border:1px solid #c4b5fd;">
+            <i class="fa-solid fa-robot" style="font-size:24px;color:#7c3aed;"></i>
+            <div>
+                <strong style="color:#5b21b6;">Agentforce Auto-Routing Active</strong>
+                <p style="font-size:13px;color:#6b7280;margin-top:4px;">Cases are automatically analyzed by AI and routed to specialized queues based on category, urgency, and sentiment score.</p>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <button class="active">All Cases</button>
+            <button>Urgent</button>
+            <button>Pending</button>
+            <button>Needs Approval</button>
+            <button>AI Solved</button>
+            <button>Closed</button>
+        </div>
+
+        <div class="card">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Case ID</th><th>Customer</th><th>Category</th><th>Issue</th><th>Priority</th><th>Routed To</th><th>Status</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#CS-9021</strong></td><td>Sarah Jenkins</td>
+                        <td>Hardware</td>
+                        <td>Defective screen on ProBook Ultra</td>
+                        <td><span class="status-badge urgent">P1 - Critical</span></td>
+                        <td><span class="routing-badge routing-hw"><i class="fa-solid fa-microchip"></i> Hardware Q</span></td>
+                        <td><span class="status-badge urgent">Open</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#CS-9018</strong></td><td>Michael Chen</td>
+                        <td>Shipping</td>
+                        <td>Order delayed by 5 days</td>
+                        <td><span class="status-badge pending">P2 - High</span></td>
+                        <td><span class="routing-badge routing-ship"><i class="fa-solid fa-truck-fast"></i> Shipping Q</span></td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#CS-8995</strong></td><td>Tech Solutions Inc.</td>
+                        <td>Warranty</td>
+                        <td>Bulk warranty claim for 10 units</td>
+                        <td><span class="status-badge review">P2 - High</span></td>
+                        <td><span class="routing-badge routing-mgr"><i class="fa-solid fa-user-tie"></i> Manager Q</span></td>
+                        <td><span class="status-badge review">Needs Approval</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#CS-8990</strong></td><td>Emma Woods</td>
+                        <td>Technical</td>
+                        <td>Bluetooth pairing issue</td>
+                        <td><span class="status-badge pending">P3 - Medium</span></td>
+                        <td><span class="routing-badge routing-ai"><i class="fa-solid fa-robot"></i> Agentforce</span></td>
+                        <td><span class="status-badge solved">AI Solved</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#CS-8982</strong></td><td>Arjun Nair</td>
+                        <td>Returns</td>
+                        <td>Requesting return for SmartWatch</td>
+                        <td><span class="status-badge pending">P3 - Medium</span></td>
+                        <td><span class="routing-badge routing-ai"><i class="fa-solid fa-robot"></i> Agentforce</span></td>
+                        <td><span class="status-badge pending">In Progress</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#CS-8970</strong></td><td>James Liu</td>
+                        <td>Technical</td>
+                        <td>GamePulse controller not charging</td>
+                        <td><span class="status-badge">P4 - Low</span></td>
+                        <td><span class="routing-badge routing-hw"><i class="fa-solid fa-microchip"></i> Hardware Q</span></td>
+                        <td><span class="status-badge solved">Closed</span></td>
+                        <td><button class="btn-sm" style="background:var(--primary)">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script>
+document.querySelectorAll('.filter-bar button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-bar button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

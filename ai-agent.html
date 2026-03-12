@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentforce AI | SupportAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .chat-layout { display:grid;grid-template-columns:1fr 340px;gap:24px;padding:0 32px 32px; }
+        .chat-window { background:#fff;border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;height:600px; }
+        .chat-header { padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px; }
+        .agent-avatar { width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#0D8ABC);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff; }
+        .agent-status { font-size:12px;color:var(--success);font-weight:500; }
+        .chat-body { flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px; }
+        .chat-bubble { max-width:78%;padding:14px 18px;border-radius:16px;font-size:14px;line-height:1.6; }
+        .chat-bubble.ai { background:linear-gradient(135deg,#ede9fe,#e0f2fe);color:#1a202c;align-self:flex-start;border-bottom-left-radius:4px; }
+        .chat-bubble.user { background:var(--primary);color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+        .chat-input-bar { padding:16px 20px;border-top:1px solid var(--border);display:flex;gap:12px; }
+        .chat-input-bar input { flex:1;border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;outline:none; }
+        .chat-input-bar input:focus { border-color:var(--primary); }
+        .send-btn { width:44px;height:44px;border-radius:10px;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:16px;transition:0.2s; }
+        .send-btn:hover { background:#0b739e; }
+        .info-panel { display:flex;flex-direction:column;gap:16px; }
+        .info-card { background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px; }
+        .info-card h4 { margin-bottom:12px;font-size:15px; }
+        .suggestion-btn { display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:8px;background:var(--bg-main);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:0.2s; }
+        .suggestion-btn:hover { background:var(--primary-light);border-color:var(--primary);color:var(--primary); }
+        .stat-row { display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px; }
+        .stat-row:last-child { border-bottom:none; }
+        .typing-indicator { display:flex;gap:4px;align-items:center;padding:10px 14px;background:var(--ai-purple-bg);border-radius:12px;width:fit-content; }
+        .dot { width:8px;height:8px;border-radius:50%;background:var(--ai-purple);animation:bounce 1.2s infinite; }
+        .dot:nth-child(2) { animation-delay:0.2s; }
+        .dot:nth-child(3) { animation-delay:0.4s; }
+        @keyframes bounce { 0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);} }
+    </style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="sidebar-header"><i class="fa-solid fa-headset logo-icon"></i><h2>SupportAI</h2></div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+            <li><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+            <li><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+            <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+            <li><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+        </ul>
+    </nav>
+    <div class="agentforce-promo">
+        <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+        <h4>Agentforce AI</h4>
+        <p>Currently Active</p>
+        <a href="ai-agent.html" class="btn-sm" style="background:#6b46c1;">Active ●</a>
+    </div>
+</aside>
+
+<main class="main-content">
+    <header class="topbar">
+        <div class="search-bar"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search conversations..."></div>
+        <div class="topbar-actions">
+            <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+            <div class="user-profile"><img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"><span>Admin</span></div>
+        </div>
+    </header>
+
+    <div class="content-header">
+        <div><h1>Agentforce AI</h1><p>AI-powered customer interaction and automated support agent</p></div>
+        <div style="display:flex;gap:12px;">
+            <span style="background:var(--success-bg);color:var(--success);padding:10px 18px;border-radius:8px;font-weight:600;font-size:13px;"><i class="fa-solid fa-circle" style="font-size:8px;"></i> AI Online</span>
+        </div>
+    </div>
+
+    <div class="chat-layout">
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="agent-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <strong>Agentforce Assistant</strong>
+                    <p class="agent-status">● Online — Powered by Salesforce Agentforce</p>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-bubble ai">
+                    👋 Hello! I'm the <strong>Agentforce AI Assistant</strong> for ElectroGadgets Support.<br><br>
+                    I can help you with:<br>
+                    • Order tracking &amp; shipping updates<br>
+                    • Product troubleshooting<br>
+                    • Warranty claims &amp; returns<br>
+                    • Account and billing questions<br><br>
+                    How can I help you today?
+                </div>
+                <div class="chat-bubble user">My ProBook Ultra laptop screen is flickering. I bought it 4 months ago.</div>
+                <div class="chat-bubble ai">
+                    I'm sorry to hear that! A flickering screen can be frustrating. Let me look into this for you. 🔍<br><br>
+                    <strong>Case #CS-9021 created automatically.</strong><br><br>
+                    Based on your purchase date (4 months ago), your device is well within the <strong>2-Year Warranty</strong> period.<br><br>
+                    I've diagnosed this as a known display driver issue on ProBook Ultra 15 units manufactured before Feb 2026. A <strong>firmware patch</strong> is available!<br><br>
+                    Would you like me to: <br>
+                    ① Send the firmware update link to your email<br>
+                    ② Or escalate to a hardware specialist if the issue persists?
+                </div>
+                <div class="chat-bubble user">Yes, send the firmware link please.</div>
+                <div class="chat-bubble ai">
+                    ✅ Done! I've sent the firmware update instructions to <strong>sarah.j@email.com</strong>.<br><br>
+                    <strong>Next steps:</strong><br>
+                    1. Download the update from the link in your email<br>
+                    2. Run the installer (takes ~5 minutes)<br>
+                    3. Restart your laptop<br><br>
+                    If the flickering continues after the update, reply here and I'll immediately escalate to our hardware team with priority status. 🛠️<br><br>
+                    Is there anything else I can help you with?
+                </div>
+            </div>
+            <div class="chat-input-bar">
+                <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <div class="info-card">
+                <h4><i class="fa-solid fa-bolt" style="color:var(--ai-purple);"></i> Quick Suggestions</h4>
+                <button class="suggestion-btn" onclick="fillInput('Track my order #ORD-9018')">Track my order</button>
+                <button class="suggestion-btn" onclick="fillInput('I want to return a product')">Return a product</button>
+                <button class="suggestion-btn" onclick="fillInput('How do I file a warranty claim?')">Warranty claim</button>
+                <button class="suggestion-btn" onclick="fillInput('My device is not charging')">Device not charging</button>
+                <button class="suggestion-btn" onclick="fillInput('Update my account information')">Update account info</button>
+            </div>
+            <div class="info-card">
+                <h4><i class="fa-solid fa-chart-bar" style="color:var(--primary);"></i> AI Performance Today</h4>
+                <div class="stat-row"><span>Conversations handled</span><strong>148</strong></div>
+                <div class="stat-row"><span>Auto-resolved</span><strong>94 (64%)</strong></div>
+                <div class="stat-row"><span>Escalated to human</span><strong>54</strong></div>
+                <div class="stat-row"><span>Avg response time</span><strong>2.1 sec</strong></div>
+                <div class="stat-row"><span>Customer satisfaction</span><strong>4.8 / 5 ⭐</strong></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const chatBody = document.getElementById('chatBody');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    // Add user bubble
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble user';
+    userBubble.textContent = msg;
+    chatBody.appendChild(userBubble);
+    input.value = '';
+
+    // Show typing indicator
+    const typing = document.createElement('div');
+    typing.className = 'typing-indicator';
+    typing.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+    chatBody.appendChild(typing);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // AI response after delay
+    setTimeout(() => {
+        chatBody.removeChild(typing);
+        const aiBubble = document.createElement('div');
+        aiBubble.className = 'chat-bubble ai';
+        aiBubble.innerHTML = getAIResponse(msg);
+        chatBody.appendChild(aiBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 1400);
+}
+
+function handleEnter(e) {
+    if (e.key === 'Enter') sendMessage();
+}
+
+function fillInput(text) {
+    document.getElementById('chatInput').value = text;
+    document.getElementById('chatInput').focus();
+}
+
+function getAIResponse(msg) {
+    const m = msg.toLowerCase();
+    if (m.includes('order') || m.includes('track')) {
+        return '📦 I can see your latest order <strong>#ORD-9018</strong> is currently <strong>In Transit</strong>. Estimated delivery: <strong>Mar 14, 2026</strong>. Would you like me to send you real-time tracking updates via email?';
+    } else if (m.includes('return') || m.includes('refund')) {
+        return '🔄 I\'ve initiated a return request for you! You\'ll receive a prepaid return label at your email within 24 hours. Refunds are processed within 5-7 business days after we receive the item. Case <strong>#CS-' + (9050 + Math.floor(Math.random()*100)) + '</strong> created.';
+    } else if (m.includes('warranty')) {
+        return '🛡️ To file a warranty claim, please provide your <strong>Order ID</strong> and a brief description of the issue. I\'ll automatically verify your warranty status and create a priority case for you!';
+    } else if (m.includes('charg')) {
+        return '🔌 Sorry to hear about the charging issue! Let\'s try some quick fixes:<br>1. Try a different power outlet<br>2. Check if the charging port has debris<br>3. Try a different cable<br><br>Still not working? I\'ll escalate to our hardware team immediately. 🛠️';
+    } else if (m.includes('account') || m.includes('update')) {
+        return '👤 I can help you update your account information. For security, I\'ll send a verification link to your registered email. Once verified, you\'ll be able to update your name, address, and contact details.';
+    } else {
+        return '🤖 Thank you for reaching out! I\'ve logged your query and created Case <strong>#CS-' + (9050 + Math.floor(Math.random()*100)) + '</strong>. One of our specialists will follow up within 2 hours. Is there anything else I can help you with?';
+    }
+}
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

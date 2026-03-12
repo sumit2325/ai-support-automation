@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Support & Service Automation</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-headset logo-icon"></i>
+            <h2>SupportAI</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="active"><a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a></li>
+                <li><a href="orders.html"><i class="fa-solid fa-truck-fast"></i> Orders</a></li>
+                <li><a href="cases.html"><i class="fa-solid fa-clipboard-list"></i> Cases</a></li>
+                <li><a href="queues.html"><i class="fa-solid fa-layer-group"></i> Queues</a></li>
+                <li><a href="approvals.html"><i class="fa-solid fa-check-double"></i> Approvals</a></li>
+            </ul>
+        </nav>
+        <div class="agentforce-promo">
+            <div class="agentforce-icon"><i class="fa-solid fa-robot"></i></div>
+            <h4>Agentforce AI</h4>
+            <p>Ready to assist customers</p>
+            <a href="ai-agent.html" class="btn-sm">Launch Agent</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <div class="search-bar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search cases, customers, orders...">
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-header">
+            <div>
+                <h1>Dashboard Overview</h1>
+                <p>Real-time metrics for AI-Powered Customer Support</p>
+            </div>
+            <button class="btn-primary"><i class="fa-solid fa-plus"></i> New Case</button>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon blue"><i class="fa-solid fa-ticket"></i></div>
+                <div class="metric-data">
+                    <h3>Total Cases</h3>
+                    <p class="number">1,248</p>
+                    <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 12% vs last week</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon green"><i class="fa-solid fa-check-circle"></i></div>
+                <div class="metric-data">
+                    <h3>Resolved</h3>
+                    <p class="number">984</p>
+                    <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 5% vs last week</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon orange"><i class="fa-solid fa-clock"></i></div>
+                <div class="metric-data">
+                    <h3>Avg Response</h3>
+                    <p class="number">4.2m</p>
+                    <span class="trend down"><i class="fa-solid fa-arrow-down"></i> 2.1m (Improved)</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon purple"><i class="fa-solid fa-robot"></i></div>
+                <div class="metric-data">
+                    <h3>AI Handled</h3>
+                    <p class="number">64%</p>
+                    <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 18% vs last week</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Charts/Tables -->
+        <div class="dashboard-widgets">
+            <div class="widget recent-cases">
+                <div class="widget-header">
+                    <h3>Recent Priority Cases</h3>
+                    <a href="cases.html">View All</a>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Customer</th>
+                            <th>Issue</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#CS-9021</td>
+                            <td>Sarah Jenkins</td>
+                            <td>Defective Screen (MacBook)</td>
+                            <td><span class="status-badge urgent">Urgent</span></td>
+                            <td>Hardware Queue</td>
+                        </tr>
+                        <tr>
+                            <td>#CS-9018</td>
+                            <td>Michael Chen</td>
+                            <td>Order delayed by 5 days</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>Shipping Queue</td>
+                        </tr>
+                        <tr>
+                            <td>#CS-8995</td>
+                            <td>Tech Solutions Inc.</td>
+                            <td>Bulk Warranty Claim</td>
+                            <td><span class="status-badge review">Needs Approval</span></td>
+                            <td>Manager Queue</td>
+                        </tr>
+                        <tr>
+                            <td>#CS-8990</td>
+                            <td>Emma Woods</td>
+                            <td>Bluetooth pairing issue</td>
+                            <td><span class="status-badge solved">AI Solved</span></td>
+                            <td>Agentforce</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="widget ai-performance">
+                <div class="widget-header">
+                    <h3>Agentforce Activity</h3>
+                </div>
+                <div class="activity-feed">
+                    <div class="feed-item">
+                        <div class="feed-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="feed-content">
+                            <p><strong>Agentforce</strong> resolved Case #CS-9030 (Password Reset) automatically.</p>
+                            <span class="time">10 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="feed-icon warning"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                        <div class="feed-content">
+                            <p><strong>Agentforce</strong> routed Case #CS-9021 to Hardware Queue due to high sentiment frustration.</p>
+                            <span class="time">45 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="feed-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="feed-content">
+                            <p><strong>Agentforce</strong> processed 42 warranty checks in the background.</p>
+                            <span class="time">2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
