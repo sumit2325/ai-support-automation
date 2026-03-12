@@ -117,6 +117,21 @@ body {
     margin-bottom: 12px;
 }
 
+.watermark {
+    margin-top: auto;
+    padding: 16px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.watermark span {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
 .btn-sm {
     display: inline-block;
     padding: 8px 16px;
