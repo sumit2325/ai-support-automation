@@ -13,6 +13,8 @@ An **AI-Powered Customer Support & Service Automation** system built for an inte
 ### Working Demo Video
 A complete walkthrough of the dashboard, showing the seamless dark theme, navigation, and the interactive Agentforce AI:
 
+> 📽️ **Download/Watch MP4:** [working_demo.mp4](assets/working_demo.mp4)
+
 ![Working Project Demo](assets/demo_video.webp)
 
 ### Dashboard Overview
