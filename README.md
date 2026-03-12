@@ -8,14 +8,7 @@ An **AI-Powered Customer Support & Service Automation** system built for an inte
 
 > 🌟 **Live Demo:** [Click here to view the live project](https://sumit2325.github.io/ai-support-automation/)
 
-## 🎥 Walkthrough & Screenshots
-
-### Working Demo Video
-A complete walkthrough of the dashboard, showing the seamless dark theme, navigation, and the interactive Agentforce AI:
-
-> 📽️ **Download/Watch MP4:** [working_demo.mp4](assets/working_demo.mp4)
-
-![Working Project Demo](assets/demo_video.webp)
+## 📷 Project Screenshots
 
 ### Dashboard Overview
 ![Dashboard Setup](assets/dashboard.png)
