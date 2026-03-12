@@ -4,7 +4,14 @@
 
 ## 📋 Project Overview
 
-An **AI-Powered Customer Support & Service Automation** system for an international Electronics & Gadgets company. This system uses Salesforce Service Cloud concepts including Flows, Agentforce (AI Agent), and automated workflows.
+An **AI-Powered Customer Support & Service Automation** system built for an international Electronics & Gadgets company. This intuitive dashboard was built to manage products, customers, orders, cases, and interactive AI chats.
+
+> 🌟 **Live Demo:** [Click here to view the live project](https://sumit2325.github.io/ai-support-automation/)
+
+## 🧑‍💻 Author & Credits
+
+Designed and developed with extreme dedication by **Sumit Thakur** ([@sumit2325](https://github.com/sumit2325)). 
+This project showcases hard work, pixel-perfect attention to detail in UI/UX design (featuring a custom dark theme), and clean frontend architecture intended for a top-tier college submission.
 
 ## 🚀 Features
 
