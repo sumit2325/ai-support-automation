@@ -1,30 +1,39 @@
-:root {
-    --primary: #ff6b00; /* Bright catchy orange */
-    --primary-light: #2a1b12; /* Very dark orange-tinted background */
-    --secondary: #0a0a0a; /* True black/dark grey */
-    --text-main: #f3f4f6; /* Off-white for main text */
-    --text-muted: #9ca3af; /* Light grey for muted text */
-    --bg-main: #000000; /* Pure black background */
-    --bg-card: #111111; /* Slightly lighter black for cards */
-    --border: #27272a; /* Dark grey border */
-    
-    --success: #10b981;
-    --success-bg: #064e3b;
-    --warning: #f59e0b;
-    --warning-bg: #78350f;
-    --danger: #ef4444;
-    --danger-bg: #7f1d1d;
-    --info: #3b82f6;
-    --info-bg: #1e3a8a;
-    --ai-purple: #a855f7;
-    --ai-purple-bg: #4c1d95;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary: #FF6B00;
+    --primary-hover: #E65A00;
+    --bg-main: #000000;
+    --bg-sidebar: #0a0a0a;
+    --bg-card: #121212;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --border: #27272a;
+    
+    /* Functional colors */
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --info: #3b82f6;
+
+    /* Backgrounds for badges */
+    --success-bg: rgba(16, 185, 129, 0.1);
+    --danger-bg: rgba(239, 68, 68, 0.1);
+    --warning-bg: rgba(245, 158, 11, 0.1);
+    --info-bg: rgba(59, 130, 246, 0.1);
+    
+    /* Branding */
+    --ai-purple: #8b5cf6;
+    --ai-purple-bg: rgba(139, 92, 246, 0.1);
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .dashboard-body {
@@ -541,13 +550,18 @@ input, select {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .workflow-steps {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
     .sidebar {
         transform: translateX(-100%);
         z-index: 1000;
         transition: transform 0.3s ease-in-out;
     }
-    
+
     .sidebar.active {
         transform: translateX(0);
     }
